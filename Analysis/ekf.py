@@ -38,7 +38,7 @@ class EKF:
         # ── R: measurement noise — how much we distrust the GPS ──────────────
         # KITTI OXTS is accurate to ~2cm but we use conservative values
         self.R = np.diag([
-            1.0, 1.0, 1.0        # GPS x, y, z noise (metres^2)
+            0.01, 0.01, 0.01    # GPS x, y, z noise (metres^2) — tuned to KITTI RTK accuracy
         ])
 
         # ── H: measurement matrix — GPS only observes position (first 3) ─────
